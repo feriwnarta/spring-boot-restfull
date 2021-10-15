@@ -5,6 +5,7 @@ import com.ferdev.belajarrestfull.service.ProdukService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,7 +22,7 @@ public class ProdukController {
     }
 
     @PostMapping
-    public ResponseEntity<Produk> saveOrUpdate(@RequestBody Produk produk){
+    public ResponseEntity<Produk> saveOrUpdate(@Validated @RequestBody Produk produk){
         return new ResponseEntity<>(produkService.saveOrUpdate(produk), HttpStatus.OK);
     }
 
